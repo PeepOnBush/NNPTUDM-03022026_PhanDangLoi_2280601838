@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User & Role Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quản lý User & Role</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('users')">Users</button>
+            <button class="tab" onclick="showTab('roles')">Roles</button>
+        </div>
+
+        <!-- Users Tab -->
+        <div id="users-tab" class="tab-content active">
+            <div class="actions">
+                <button onclick="showCreateUserForm()">Tạo User</button>
+            </div>
+            
+            <div id="user-form" class="form-container" style="display:none;">
+                <h3>Tạo User Mới</h3>
+                <input type="text" id="username" placeholder="Username *" required>
+                <input type="password" id="password" placeholder="Password *" required>
+                <input type="email" id="email" placeholder="Email *" required>
+                <input type="text" id="fullName" placeholder="Full Name">
+                <select id="roleSelect"></select>
+                <div class="form-actions">
+                    <button onclick="createUser()">Lưu</button>
+                    <button onclick="hideUserForm()">Hủy</button>
+                </div>
+            </div>
+
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Full Name</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Login Count</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-body"></tbody>
+            </table>
+        </div>
+
+        <!-- Roles Tab -->
+        <div id="roles-tab" class="tab-content">
+            <div class="actions">
+                <button onclick="showCreateRoleForm()">Tạo Role</button>
+            </div>
+            
+            <div id="role-form" class="form-container" style="display:none;">
+                <h3>Tạo Role Mới</h3>
+                <input type="text" id="roleName" placeholder="Role Name *" required>
+                <input type="text" id="roleDescription" placeholder="Description">
+                <div class="form-actions">
+                    <button onclick="createRole()">Lưu</button>
+                    <button onclick="hideRoleForm()">Hủy</button>
+                </div>
+            </div>
+
+            <table id="roles-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody id="roles-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
